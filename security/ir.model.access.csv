@@ -1,0 +1,2 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_yfc_update_yfc_update,yfc_update.yfc_update,model_yfc_update_yfc_update,,1,0,0,0

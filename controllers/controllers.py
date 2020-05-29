@@ -18,3 +18,23 @@ from odoo import http
 #         return http.request.render('yfc_update.object', {
 #             'object': obj
 #         })
+
+from odoo.addons.website_sale.controllers.main import WebsiteSale
+from odoo.http import request
+import werkzeug.utils
+
+
+class ResWebsiteSale(WebsiteSale):
+
+    @http.route([
+        '''/shop''',
+        '''/shop/page/<int:page>''',
+        '''/shop/category/<model("product.public.category", "[('website_id', 'in', (False, current_website_id))]"):category>''',
+        '''/shop/category/<model("product.public.category", "[('website_id', 'in', (False, current_website_id))]"):category>/page/<int:page>'''
+    ], type='http', auth="public", website=True)
+    def shop(self, page=0, category=None, search='', ppg=False, **post):
+        # auroral 2020-5-25
+        if not request.session.uid:
+            return werkzeug.utils.redirect('/web/login')
+        # auroral 2020-5-25
+        return super(ResWebsiteSale, self).shop(page, category, search, ppg, **post)

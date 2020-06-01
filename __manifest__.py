@@ -31,6 +31,7 @@
         'views/templates.xml',
         'views/res_partner_pricelist.xml',
         'views/sale_order.xml',
+        'views/account_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [

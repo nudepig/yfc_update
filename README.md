@@ -5,4 +5,5 @@
 4. 在sale.order新增加了onchange方法，销售员绑定销售团队
 5. 修改了sale_views视图，使得客户、产品、销售员、销售团队选择框不能创建
 6. 修改了account_view视图，增加了销售团队字段，使得多对一字段没有创建的选项
-7, 修改了purchase_view视图，使得多对一字段没有创建的选项
+7. 修改了purchase_view视图，使得多对一字段没有创建的选项
+8. 在sale.order.line中tree和forms视图增加了折扣后单价和折扣后毛利

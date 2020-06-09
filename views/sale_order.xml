@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <odoo>
-    <record id="website_sale_order_form_inherit" model="ir.ui.view">
+    <record id="yfc_view_order_form_inherit" model="ir.ui.view">
         <field name="name">sale.order.form</field>
         <field name="model">sale.order</field>
         <field name="inherit_id" ref="sale.view_order_form"/>
@@ -41,6 +41,16 @@
                     }"
                     options="{'no_create': True}"
                 />
+            </xpath>
+            <xpath expr="//field[@name='order_line']/form/group/group/field[@name='price_unit']" position="after">
+
+                <field name="discount_after_unit"/>
+                <field name="discount_after_margin" groups="base.group_user"/>
+
+            </xpath>
+            <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="after">
+                <field name="discount_after_unit"/>
+                <field name="discount_after_margin" groups="base.group_user"/>
             </xpath>
 
         </field>

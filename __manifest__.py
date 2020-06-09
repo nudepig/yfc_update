@@ -22,7 +22,7 @@
     'application': True,
 
     # any module necessary for this one to work correctly
-    'depends': ['base','website','website_sale'],
+    'depends': ['base','website','website_sale','account','purchase'],
 
     # always loaded
     'data': [

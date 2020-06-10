@@ -45,12 +45,12 @@
             <xpath expr="//field[@name='order_line']/form/group/group/field[@name='price_unit']" position="after">
 
                 <field name="discount_after_unit"/>
-                <field name="discount_after_margin" groups="base.group_user"/>
+                <field name="discount_after_margin" groups="account.group_account_invoice"/>
 
             </xpath>
             <xpath expr="//field[@name='order_line']/tree/field[@name='discount']" position="after">
                 <field name="discount_after_unit"/>
-                <field name="discount_after_margin" groups="base.group_user"/>
+                <field name="discount_after_margin" groups="account.group_account_invoice"/>
             </xpath>
 
         </field>

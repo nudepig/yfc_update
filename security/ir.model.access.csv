@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_yfc_update_yfc_update,yfc_update.yfc_update,model_yfc_update_yfc_update,,1,0,0,0
+
+access_yfc_update_stock_ledger,yfc_update.stock_ledger,model_stock_ledger,,1,1,1,1
+access_yfc_update_stock_ledger_line,yfc_update.stock_ledger_line,model_stock_ledger_line,,1,1,1,1

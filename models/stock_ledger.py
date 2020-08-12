@@ -11,7 +11,7 @@ import datetime
 class StockLedger(models.Model):
     _name = 'stock.ledger'
     _description = 'this is stock ledger'
-    name = fields.Char(string="报表名称", required=True)
+    name = fields.Char(string="报表名称")
     startDate = fields.Date(string="开始期间", required=True)
     endDate = fields.Date(string="结束期间", required=True)
     fast_period = fields.Date(string="选取期间")
@@ -22,10 +22,10 @@ class StockLedger(models.Model):
     repositories = fields.Many2one('stock.location', string='仓库位置',
                                    store=True, index=True, readonly=False, required=True)
     customer = fields.Many2one('stock.location', string='客户位置',
-                               default=lambda self:self.env['stock.location'].search([('usage', '=' ,'customer')],limit=1).id)
+                               default=lambda self:self.env['stock.location'].search([('usage', '=' ,'customer')],limit=1).id, required=True)
     supplier = fields.Many2one('stock.location', string='供应商位置',
                                default=lambda self: self.env['stock.location'].search([('usage', '=', 'supplier')],
-                                                                                      limit=1).id)
+                                                                                      limit=1).id, required=True)
     line_ids = fields.One2many('stock.ledger.line', 'move_id', string='库存总账明细',
                                copy=True, readonly=True, ondelete="Cascade")
 

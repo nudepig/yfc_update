@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
  <record model="ir.actions.act_window" id="action_stock_ledger">
-        <field name="name">库存总账查询</field>
+        <field name="name">库存总账</field>
         <field name="res_model">stock.ledger</field>
         <field name="view_type">form</field>
         <field name="view_mode">tree,form</field>
@@ -12,7 +12,7 @@
     </record>
 
      <record id="stock_ledger_view_form" model="ir.ui.view">
-            <field name="name">库存总账查询</field>
+            <field name="name">库存总账</field>
             <field name="model">stock.ledger</field>
             <field name="arch" type="xml">
                 <form>
@@ -20,9 +20,9 @@
                         <group col="2">
                             <group>
                                 <field name="name"/>
-                                <field name="repositories" domain="[('company_id', '=', company_id)]" options="{'no_create': True, 'no_edit': True}"/>
-                                <field name="customer" domain="[('company_id', '=', company_id)]" options="{'no_create': True, 'no_edit': True}"/>
-                                <field name="supplier" domain="[('company_id', '=', company_id)]" options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="repositories" domain="[('company_id', '=', company_id),('usage', '=', 'internal'),('active', '=', 'true')]" options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="customer" domain="[('usage', '=', 'customer'),('active', '=', 'true')]" options="{'no_create': True, 'no_edit': True}"/>
+                                <field name="supplier" domain="[('usage', '=', 'supplier'),('active', '=', 'true')]" options="{'no_create': True, 'no_edit': True}"/>
                             </group>
                             <group>
                                 <field name="startDate" editable='0'/>
@@ -65,7 +65,7 @@
 
     <!--自定义树状视图-->
     <record id="stock_ledger_view_tree2" model="ir.ui.view">
-        <field name="name">库存总账查询</field>
+        <field name="name">库存总账</field>
         <field name="model">stock.ledger</field>
         <field name="arch" type="xml">
             <tree>
@@ -98,17 +98,17 @@
             </field>
     </record>
 
-    <record id="stock_ledger_line_search" model="ir.ui.view">
-            <field name="model">stock.ledger.line</field>
-            <field name="arch" type="xml">
-                <search>
-                    <field name="product_name" />
-                    <field name="stock_in_hand" />
+<!--    <record id="stock_ledger_line_search" model="ir.ui.view">-->
+<!--            <field name="model">stock.ledger.line</field>-->
+<!--            <field name="arch" type="xml">-->
+<!--                <search>-->
+<!--                    <field name="product_name" />-->
+<!--                    <field name="stock_in_hand" />-->
 
-                </search>
-            </field>
-    </record>
+<!--                </search>-->
+<!--            </field>-->
+<!--    </record>-->
 
-        <menuitem id="action_stock_ledger_menuitem" name="库存总账查询" parent="stock.menu_warehouse_report" action="action_stock_ledger"/>
+        <menuitem id="action_stock_ledger_menuitem" name="库存总账" parent="stock.menu_warehouse_report" action="action_stock_ledger" groups="stock.group_stock_manager"/>
 
 </odoo>
